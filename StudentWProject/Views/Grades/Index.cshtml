@@ -1,0 +1,56 @@
+﻿@model IEnumerable<StudentWProject.Models.Grade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+<div id="home">
+    <div class="landing-text">
+        <div class="row text-center">
+            <div class="col-12">
+                <h4>Welcome to the </h4>
+                <hr>
+                <h1 class="display-4">Students Project</h1>
+                <hr>
+                <h3>GRADE'S SECTION</h3>
+            </div>
+            <div class="col-12">
+                <p>
+                    <a asp-action="Create">Create New</a>
+                </p>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GradeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GradeName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GradeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.GradeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GradeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
